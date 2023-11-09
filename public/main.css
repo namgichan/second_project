@@ -1,0 +1,478 @@
+*{
+  box-sizing: border-box;
+  font-family: 'JeonjuCraftGoR';
+
+}
+
+html{
+background-color: rgb(247, 255, 248);
+}
+
+body{
+width: 100%;
+justify-content: center;
+min-height: 100vh;
+align-items: center;
+/*background-color: rgb(184, 226, 190);rgb(223, 233, 225);*/
+background-color: rgb(247, 255, 248);
+}
+
+.logout_button{
+  border: 0;
+  margin-left: 20px;
+  width: 100px;
+  height: 20px;
+  padding: 5px 30px;
+  font-weight: 600;
+  background-color: transparent;
+}
+
+.logout_button:hover{
+  border: 0;
+  margin-left: 20px;
+  width: 100px;
+  height: 30px;
+  padding: 5px 30px;
+  font-weight: 600;
+  background-color: #bbe0cf;
+}
+
+.logout_button:active{
+  border: 0;
+  margin-left: 20px;
+  width: 100px;
+  height: 30px;
+  padding: 6px 30px;
+  font-weight: 600;
+  background-color: #cff3e2;
+}
+
+
+/* 
+#w-btn-indigo {
+  background-color: aliceblue;
+  color: #1e6b7b;
+  position: relative;
+  padding: 5px 30px;
+  border-radius: 15px;
+  font-family: "paybooc-Light", sans-serif;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s;
+  margin: 20px;
+} */
+
+.navigation{
+position: absolute;
+width: 50px;
+height: 50px;
+background: #fff;
+transition: width 0.5s, height 0.5s;
+transition-delay: 0s, 0.75s;
+z-index: 1000000;
+border-radius: 4px; 
+overflow: hidden;
+}
+
+/*메뉴 창*/
+.navigation.active{
+width: 130px;
+height: 150px;
+transition: height 0.5s, width 0.5s;
+transition-delay: 0s, 0.75s;
+}
+
+.navigation .toggle{
+position: relative;
+top: 0;
+left: 0;
+width: 100%;
+height: 50px;
+display: flex;
+justify-content: flex-end;
+align-items: center;
+background: #4ca17a;
+transition: 0.5s;
+cursor: pointer;
+}
+
+.navigation .toggle.active{
+background: #4ca17a;
+}
+
+.navigation .toggle::before{
+content: '+'; 
+position: absolute;
+font-size: 2em;
+display: flex;
+justify-content: center;
+align-items: center;
+width: 50px;
+height: 50px;
+color: #fff;
+font-weight: 400;
+transition: 0.5s;
+}
+
+.navigation .toggle.active::before{
+transform: rotate(315deg);
+}
+
+.navigation ul{
+position: absolute;
+left: -30px;
+width: 100%;
+}
+
+.navigation ul li{
+position: relative;
+list-style: none;
+width: 100%;
+}
+
+.navigation ul li:hover{
+background: #d3f5d3;
+}
+
+.navigation ul li a{ 
+position: relative;
+display: block;
+width: 100%;
+display: flex;
+text-decoration: none;
+color: #154367;
+}
+
+.navigation ul li a .icon{
+position: relative;
+display: block;
+min-width: 50px;
+height: 50px;
+text-align: center;
+line-height: 50px;
+}
+
+.navigation ul li a .icon .fa{
+font-size: 24px;
+color: #4ca17a;
+}
+
+.navigation ul li a .title{
+position: relative;
+display: block;
+line-height: 50px;
+text-align: start;
+white-space: nowrap;
+}
+
+.navigation ul li:hover a .icon .fa,
+.navigation ul li:hover a .title{
+color: #fff;
+} 
+
+
+.header{
+  font-size: 30px;
+  margin : auto;
+  padding : 10px;
+  text-align : center;
+  position: relative;   
+  justify-content: center;
+  flex-direction: row;   
+  display: flex;
+}
+
+h2{
+background-color: #dfffe2;
+padding : 25px;
+width: 500px;
+height: 100px;
+/* position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(80%, -8%);  
+*/
+text-align : center;
+justify-content: center;
+border-radius: 20px;
+border: 2px;
+}
+
+/*
+html{
+  background-color: #eeeeee;
+}
+*/
+
+p{
+  background-color: transparent;
+}
+
+.main{
+  text-align: center;
+  font-family: 'JeonjuCraftGoR';
+  width: 28rem;
+  height: 34rem;
+  margin : 15px auto 30px;
+  border : 3px double rgb(82, 148, 123);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  position:relative;
+  padding: 10px;
+  background-color: #ffffff;
+}
+
+.main__container{
+  border-radius: 50px;
+  box-sizing: border-box;
+  border: none;
+  width: 26rem;
+  height: 31rem;
+  padding: 0;
+  background-color: transparent;
+}
+
+/* 알림 부분 */
+.alram{
+  display: flex;
+  margin: auto;
+  background-color: transparent;
+}
+
+.humi{ 
+  margin: 5px;
+  height: 8rem;
+  width: 8rem;
+  border: 2px solid rgb(82, 148, 123);
+  border-radius: 20px;
+  background-color: transparent;
+}
+
+#humi_now{
+  text-align: center;
+  width: 6rem;
+  height: 4rem;
+  border: 2px solid rgb(99, 99, 99);
+  border-radius: 12px;
+  margin-top: -0.7rem;
+}
+
+#tem_now{
+  text-align: center;
+  width: 6rem;
+  height: 4rem;
+  border: 2px solid rgb(99, 99, 99);
+  border-radius: 12px;
+  margin-top: -0.7rem;
+}
+
+.tem{
+  text-align: center;
+  margin: 5px 3px 2px 10px;
+  height: 8rem;
+  width: 8rem;
+  border: 2px solid rgb(82, 148, 123);
+  border-radius: 20px;
+  background-color: transparent;
+}
+#bri_now{
+  text-align: center;
+  width: 6rem;
+  height: 4rem;
+  border: 2px solid rgb(99, 99, 99);
+  border-radius: 12px;
+  margin-top: -0.7rem;
+}
+
+.bri{
+  margin:5px 3px 2px 10px;
+  height: 8rem;
+  width: 8rem;
+  border: 2px solid rgb(82, 148, 123);
+  border-radius: 20px;
+  background-color: transparent;
+}
+
+.lili{
+height: 10%;
+}
+
+/* 블라인드 부분*/
+.blind{
+  align-items: center;
+  margin: 9px 10px 9px 9px;
+  width: 25rem;
+  height: 11rem;
+  border: 2px solid rgb(82, 148, 123);
+  border-radius: 20px;
+  background-color: transparent;
+}
+
+.fo{
+  display: flex;
+  flex-basis: 80%;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.go{
+  display: flex;
+  flex-basis: 80%;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.no{
+position: absolute;
+overflow: visible;
+z-index: 1;
+width: 60px; 
+height: auto;
+top: -50px;
+}
+.humidifier_img{
+  position: relative;
+  margin-right: 20px;
+}
+
+.blind_img{
+  margin-right: 20px;
+}
+
+.wat{
+  align-items: center;
+  margin: 15px 10px 9px 9px;
+  width: 25rem;
+  height: 11rem;
+  border: 2px solid rgb(82, 148, 123);
+  border-radius: 20px;
+  background-color: transparent;
+}
+
+/* 스위치 디자인 */
+.wrapper { 
+  position: relative;
+  height: 4rem;
+}
+
+#switch{
+position: absolute;
+/* hidden */
+appearance: none;
+-webkit-appearance: none;
+-moz-appearance: none;
+}
+
+.switch_label {
+  position: relative;
+  margin: 20px 0px 20px;
+  cursor: pointer;
+  display: block;
+  width: 65px;
+  height: 30px;
+  background: #fff;
+  border: 2px solid rgb(82, 148, 123);
+  border-radius: 20px;
+  transition: 0.2s;
+  z-index: 1;
+}
+.switch_label:hover {
+  background: #efefef;
+}
+.onf_btn {
+  position: absolute;
+  top: 4px;
+  left: 5px;
+  display: block;
+  width: 19px;
+  height: 19px;
+  border-radius: 20px;
+  background: rgb(82, 148, 123);
+  transition: 0.2s;
+}
+
+#switch:checked +.switch_label {
+  background: rgb(123, 177, 130);
+  border: 2px solid rgb(82, 148, 123);
+}
+
+#switch:checked+.switch_label:hover {
+  background: rgb(82, 148, 123);
+}
+
+/* move */
+#switch:checked+.switch_label .onf_btn {
+  left: 33px;
+  background: #fff;
+  box-shadow: 1px 2px 3px #00000020;
+}
+
+.wrapper_w { 
+position: relative;
+height: 4rem;
+}
+
+#switch_w{
+position: absolute;
+/* hidden */
+appearance: none;
+-webkit-appearance: none;
+-moz-appearance: none;
+}
+
+.switch_label_w {
+  position: relative;
+  margin: 20px 0px 20px;
+  cursor: pointer;
+  display: block;
+  width: 65px;
+  height: 30px;
+  background: #fff;
+  border: 2px solid rgb(82, 148, 123);
+  border-radius: 20px;
+  transition: 0.2s;
+}
+.switch_label_w:hover {
+  background: #efefef;
+}
+.onf_btn_w { 
+  position: absolute;
+  top: 4px;
+  left: 5px;
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  border-radius: 20px;
+  background: rgb(82, 148, 123);
+  transition: 0.2s;
+}
+
+#switch_w:checked +.switch_label_w {
+  background: rgb(123, 177, 130);
+  border: 2px solid rgb(82, 148, 123);
+}
+
+#switch_w:checked+.switch_label_w:hover {
+  background: rgb(82, 148, 123);
+}
+
+/* move */
+#switch_w:checked+.switch_label_w .onf_btn_w {
+  left: 33px;
+  background: #fff;
+  box-shadow: 1px 2px 3px #00000020;
+}
+
+
+@font-face {
+  font-family: 'JeonjuCraftGoR';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/JeonjuCraftGoR.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}

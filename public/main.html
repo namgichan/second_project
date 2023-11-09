@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href = "main.css" rel = "stylesheet">
+    <link href = "footer.css" rel = "stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/537c75a3f7.js" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+</head>
+<body>
+    <header class = "header">
+        <h2>원격 제어 시스템</h2>
+       
+    </header>
+    <hr>
+    <div>
+        <div class = "navigation">
+            <div class = "toggle"></div>
+            <ul>
+                 <form action= "http://localhost:3000/logout" method="post">
+                  <span class = "icon"><i class="fa-solid fa-arrow-right-to-bracket"></i></i></span>
+                  <button type="submit" class = "logout_button">logout</button>
+                  </form>
+               
+            </ul>            
+        </div>
+        
+    </div>
+    <main class = "main">
+        <div class = "main__container">
+                <nav class ="alram">
+                    <section class = "humi">
+                            <p>습도</p>
+                            <div class="input1" id = "hum">
+                                <input id = "humi_now" value="">
+                            </div>
+                    </section>
+                    <section class = "tem">
+                            <p>온도</p>
+                            <div class="input2" id="temp">
+                                <input id="tem_now" value="">
+                            </div>        
+                    </section>
+                    <section class ="bri">
+                            <p>밝기</p>
+                            <div class="input3" id="bright">
+                                <input id = "bri_now" value="">
+                            </div>
+                    </section>
+                </nav>
+            <div>
+                <section class ="blind">
+                    <p>블라인드</p>
+                    <div class ="fo">
+                        <div class ="blind_img">
+                            <img src="image/certain.png" id = "open" width="100" height="auto">
+                        </div>
+                        <span class = "lili" style="font-size: 15px;">ON</span>
+                        <div class="wrapper">
+                            <input type="checkbox" id="switch">
+                            <label for="switch" class="switch_label">
+                            <span class="onf_btn"></span>
+                            </label>
+                            
+                        <span style = "font-size: 13px; font-family: 'JeonjuCraftGoR';">
+                            <input type = "checkbox" id = "blind_auto_check">
+                            수동으로 전환
+                        </span>  
+                        </div>
+                        <span class = "lili" style="font-size: 15px;">OFF</span>
+                    </div>                           
+                </section>
+            </div>
+            <div>
+                <section class="wat">
+                
+                    <p>가습기</p>
+                    <!--아이콘으로 ON 일때 연기 나오는 이미지 움직이도록
+                    자바 스크립트 넣을 것-->
+                    <div class = "go">
+                        <div class ="humidifier_img">
+                            <img class="no" src ="image/smoke.png" >
+                            <img src ="image/humidity-sensor.png" id = "sensor" width="100" height="auto">
+                        </div>
+                        <span class = "lili" style="font-size: 15px;">ON</span>
+                        <div class="wrapper_w">
+                            <input type="checkbox" id="switch_w">
+                            <label for="switch_w" class="switch_label_w">
+                            <span class="onf_btn_w"></span>
+                            </label>
+                            <span style = "font-size: 13px; font-family: 'JeonjuCraftGoR';">
+                                <input type = "checkbox" id = "humidifier_auto_check">
+                                수동으로 전환
+                            </span>  
+                        </div>
+                        <span class = "lili" style="font-size: 15px;">OFF</span>
+                    </div>
+                    
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer class = "footer">
+        <div class = "footer__container">
+            <section class = "footer__info">
+                <div>
+                    <strong>AIOT 2조 : 원격조</strong>
+                </div>
+                <div>
+                    <p>조장 : 남기찬 | 조원 : 양민석, 장은정</p>
+                </div>
+                <div>
+                    project : 가정용 IOT 환경 제어 및 조종
+                </div>
+            </section>
+        </div>
+    </footer>
+
+    <script>
+        
+
+        /*+ 움직이는 바*/
+        const navigation = document.querySelector('.navigation');
+        document.querySelector('.toggle').onclick = function(){
+            // on double click = ondblclick
+            this.classList.toggle('active');
+            navigation.classList.toggle('active');
+        }
+
+        /*페이지 전황 onclick*/
+        
+        const blind_auto_check = document.getElementById("blind_auto_check")
+        blind_auto_check.addEventListener("change", function(){
+            const blindAutoRequest = new XMLHttpRequest();
+            if(blind_auto_check.checked){
+                blindAutoRequest.open("get", "http://localhost:3000/update-servoauto/0")
+                blindAutoRequest.send()
+            }else{
+                blindAutoRequest.open("get", "http://localhost:3000/update-servoauto/1")
+                blindAutoRequest.send()
+            }
+        })
+        const humidifier_auto_check = document.getElementById("humidifier_auto_check")
+        humidifier_auto_check.addEventListener("change", function(){
+            const humidifierAutoRequest = new XMLHttpRequest();
+            if(humidifier_auto_check.checked){
+                humidifierAutoRequest.open("get", "http://localhost:3000/update-ledauto/0")
+                humidifierAutoRequest.send()
+            }else{
+                humidifierAutoRequest.open("get", "http://localhost:3000/update-ledauto/1")
+                humidifierAutoRequest.send()
+            }
+        })
+
+        const input = document.querySelector(".wrapper > input[type='checkbox']")
+        input.addEventListener("change", toggleImg)
+        function toggleImg(event){
+            const servoRequest = new XMLHttpRequest();
+            var img = document.getElementById("open");
+            console.log(event.target.checked)
+            if(event.target.checked){
+                img.src="./image/close_button.png";
+                servoRequest.open("get", "http://localhost:3000/update-servosetval/0")
+                servoRequest.send()
+            } else {
+                img.src = "./image/certain.png";
+                servoRequest.open("get", "http://localhost:3000/update-servosetval/90")
+                servoRequest.send()
+            }
+        }
+        
+        const input2 = document.querySelector(".wrapper_w > input[type = 'checkbox']")
+        input2.addEventListener("change", changeImg)
+        function changeImg(event){
+            const ledRequest = new XMLHttpRequest();
+            var imag = document.getElementById("sensor");
+            // alert("!")
+            console.log(event.target.checked)
+            if(event.target.checked){
+                document.querySelector(".no").style.display = "none";
+                imag.src= "./image/humidity-sensor.png";
+                ledRequest.open("get", "http://localhost:3000/update-ledsetval/0")
+                ledRequest.send()
+            } else {
+                document.querySelector(".no").style.display = "block";
+                imag.src= "./image/humidity-sensor.png";
+                ledRequest.open("get", "http://localhost:3000/update-ledsetval/1")
+                ledRequest.send()
+            }
+        }
+        
+         function fetchData() {
+
+            const isLogin = new XMLHttpRequest();
+            isLogin.open("get", "http://localhost:3000/islogin")
+            isLogin.addEventListener("load", function(){
+                if(JSON.parse(isLogin.response) === null){
+                    window.location.href = "http://localhost:3000/"
+                    window.alert("로그아웃 상태!!!")
+                }
+            
+            })
+            isLogin.send()
+        
+
+            const brightRequest = new XMLHttpRequest();
+            brightRequest.open("GET", "https://esp8266firebase-a017f-default-rtdb.asia-southeast1.firebasedatabase.app/bright.json");
+
+            brightRequest.addEventListener("load", function () {
+               
+                    const brightData = JSON.parse(brightRequest.responseText);
+                    
+                    const briInput = document.getElementById("bri_now");
+                    briInput.value = brightData;
+
+            });
+
+            brightRequest.send();
+
+            
+            const humidityRequest = new XMLHttpRequest();
+            humidityRequest.open("GET", "https://esp8266firebase-a017f-default-rtdb.asia-southeast1.firebasedatabase.app/humidity.json");
+
+            humidityRequest.addEventListener("load", function () {
+                
+                    const humidityData = JSON.parse(humidityRequest.responseText);
+
+                    const humInput = document.getElementById("humi_now");
+                    humInput.value = humidityData;
+                
+            });
+
+            humidityRequest.send();
+
+            
+            const temperatureRequest = new XMLHttpRequest();
+            temperatureRequest.open("GET", "https://esp8266firebase-a017f-default-rtdb.asia-southeast1.firebasedatabase.app/temperature.json");
+
+            temperatureRequest.addEventListener("load", function () {
+                
+                    const temperatureData = JSON.parse(temperatureRequest.responseText);
+
+                    const temInput = document.getElementById("tem_now");
+                    temInput.value = temperatureData;
+            });
+
+            temperatureRequest.send();
+        }
+        
+        
+        fetchData()
+    
+
+        // setInterval(fetchData, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+*{
+    font-family: 'JeonjuCraftGoR';
+}
+
+html{
+    background-color: rgb(184, 226, 190);
+    background-image: url('/smartRoom_rest_api/public/image/pngwing.com.png');
+    position: relative;
+}
+
+.back{
+    position:absolute;
+    top: -10px;
+    z-index: -1;
+    filter: opacity(0.5) invert(94%) sepia(100%) saturate(0%) hue-rotate(260deg) brightness(101%) contrast(102%);
+}
+
+.login_box{
+    width: 330px; 
+    height: 380px; 
+    display: flex;
+    margin: 100px auto; 
+    border-radius: 3px; 
+    box-shadow: 0px 0px 10px #000;
+    background-color: #fff;
+    align-items: center;
+    justify-items: center;
+    flex-direction: column;
+}
+
+.login-header{
+    margin-top: 23%;
+    margin-bottom: 15%;
+    text-align: center;
+}
+
+.account{
+    display: block;
+    margin-bottom: 8px;
+    width: 98%; 
+    height: 30px; 
+    border: 1px solid; 
+    border-radius: 3px; 
+    border-color: gray;
+}
+
+.back_main{
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.ola{
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.account_button{
+    width: 100%; 
+    height: 44px; 
+    background-color: rgb(83, 139, 102); 
+    border: 1px; 
+    border-radius: 3px; 
+    color: white; 
+    font-size: 17px; 
+    font-weight: 500;
+    margin-top: 25px;
+}
+
+.account_button:hover{
+    width: 100%; 
+    height: 44px;
+    background-color: rgba(152, 206, 176, 0.589);
+    border: 1px; 
+    border-radius: 3px; 
+    color: rgb(83, 139, 102); 
+    font-size: 17px; 
+    font-weight: 500;
+}
+
+
+@font-face {
+    font-family: 'JeonjuCraftGoR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/JeonjuCraftGoR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+  

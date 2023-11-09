@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/537c75a3f7.js" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+    <link rel="stylesheet" href="login.css">
+    <script src="app.js"></script>
+    <title>로그인하세요</title>
+</head>
+<body>
+    <main id="main">
+        <div class="login_box">
+            <h1 class="login-header">Login</h1>
+            <div class ="loginID">
+                <form class="login_form" action="http://localhost:3000/login" method="post">
+                    <input type = "email" placeholder="e-mail" id = "id" class = "account">
+                    <input type = "password" placeholder="password" id = "password" class="account">
+                    <div style="height: 10px;"></div>
+                    <div>
+                        <a href="main.html" class = "back_main">메인</a>
+                        <a href="join.html" class="ola"> / 회원가입</a>
+                    </div>
+                    <div style="height: 5px;"></div>
+                     <!-- <div>
+                        <input id="resiter" class ="account_button" value = "제출">
+                    </div> -->
+                    <button type = "submit" id = "resiter" class="account_button">login</button>
+                    <!-- <p id = "alert" class = "account"></p> -->
+                </form>
+            </div>
+        </div>
+    </main>
+
+    
+</body>
+</html>

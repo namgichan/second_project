@@ -10,7 +10,7 @@ const {signOut} = require("firebase/auth");
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded( { extended : true } ));
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const ref = db.ref()
 
 //auth.currentUser 로그인 여부 확인

@@ -10,8 +10,8 @@
 
 #define WIFI_SSID "와이파이 이름"    
 #define WIFI_PASSWORD "비밀번호" 
-#define DATABASE_URL "https://esp8266firebase-a017f-default-rtdb.asia-southeast1.firebasedatabase.app/" // RTDB의 URL
-#define DATABASE_SECRET "ztBl1PdwsIMoF2dlIQ8fmlb6yHtu3QWX7wdzXhNf"    // RTDB의 비밀번호
+#define DATABASE_URL "https:" // RTDB의 URL
+#define DATABASE_SECRET ""    // RTDB의 비밀번호
 #define BRIGHT_PIN A0
 #define DHT_PIN D7
 #define DHTTYPE DHT11

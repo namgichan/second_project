@@ -21,6 +21,6 @@
 
 
 ## 주요기능
-#### 아두이노 스케치 - <a href="">상세보기 - WIKI 이동
+#### 아두이노 스케치 - <a href="https://github.com/namgichan/second_project/blob/master/project/project.ino">상세보기 - WIKI 이동
 
-#### node.js - <a href="">상세보기 - WIKI 이동
+#### node.js - <a href="https://github.com/namgichan/second_project/blob/master/app.js">상세보기 - WIKI 이동

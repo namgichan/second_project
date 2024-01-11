@@ -8,8 +8,8 @@
 #include <LiquidCrystal_I2C.h>  //LCD
 #include <Servo.h>  // 서보
 
-#define WIFI_SSID "yangminseok"    
-#define WIFI_PASSWORD "04160416" 
+#define WIFI_SSID "와이파이 이름"    
+#define WIFI_PASSWORD "비밀번호" 
 #define DATABASE_URL "https://esp8266firebase-a017f-default-rtdb.asia-southeast1.firebasedatabase.app/" // RTDB의 URL
 #define DATABASE_SECRET "ztBl1PdwsIMoF2dlIQ8fmlb6yHtu3QWX7wdzXhNf"    // RTDB의 비밀번호
 #define BRIGHT_PIN A0
